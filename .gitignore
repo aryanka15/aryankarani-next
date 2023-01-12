@@ -12,6 +12,8 @@
 /.next/
 /out/
 
+images/
+
 # production
 /build
 
@@ -34,3 +36,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+firebase/
+*firebase*
