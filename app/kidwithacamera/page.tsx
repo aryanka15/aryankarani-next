@@ -1,10 +1,10 @@
-'use client'
+"use client";
 
 import { useEffect, useState } from "react";
 import VideoCard from "../VideoCard";
-import VideoData from "../VideoData"
-import { db } from '../firebase'
-import  Image  from 'next/image'
+import VideoData from "../VideoData";
+import { db } from "../firebase";
+import Image from "next/image";
 
 import { onValue, ref } from "firebase/database";
 
@@ -32,25 +32,31 @@ export default function KidWithACamera() {
     });
   };
 
+  function handleScroll() {
+    let scrollTop = document.documentElement.scrollTop;
+    let maxScrollTop =
+      document.getElementsByClassName("animationContainer")[0].scrollHeight -
+      window.innerHeight;
+    let scrollFraction = scrollTop / maxScrollTop;
+    let frameIndex = Math.min(
+      frameCount - 1,
+      Math.ceil(scrollFraction * frameCount)
+    );
+    setImg(
+      `/images/kwacimationAlpha/KWACIntro${frameIndex
+        .toString()
+        .padStart(3, "0")}.png`
+    );
+  }
+
   useEffect(() => {
-    window.addEventListener("scroll", () => {
-      let scrollTop = document.documentElement.scrollTop;
-      let maxScrollTop =
-        document.getElementsByClassName("animationContainer")[0].scrollHeight -
-        window.innerHeight;
-      let scrollFraction = scrollTop / maxScrollTop;
-      let frameIndex = Math.min(
-        frameCount - 1,
-        Math.ceil(scrollFraction * frameCount)
-      );
-      setImg(
-        `/images/kwacimationAlpha/KWACIntro${frameIndex
-          .toString()
-          .padStart(3, "0")}.png`
-      );
-    });
-    
+    window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll);
     fetchData();
+
+    return function cleanup() {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, [hasFetched]);
 
   let [imgSrc, setImg] = useState("/images/kwacimationAlpha/KWACIntro000.png");
@@ -64,10 +70,15 @@ export default function KidWithACamera() {
           <div className="flex sticky h-screen top-14 justify-center">
             <Image
               id="animation"
-              src={imgSrc}
+              src={
+                imgSrc == ""
+                  ? "/images/kwacimationAlpha/KWACIntro000.png"
+                  : imgSrc
+              }
               alt="KidWithACamera logo animation"
               fill={true}
               className="aspect-video w-screen md:h-screen md:w-auto object-contain"
+              unoptimized
             />
           </div>
         </div>
