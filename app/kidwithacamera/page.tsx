@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import VideoCard from "../VideoCard";
 import VideoData from "../VideoData";
 import { db } from "../firebase";
-import Image from "next/image";
+import NextImage from "next/image";
 
 import { onValue, ref } from "firebase/database";
 
@@ -52,6 +52,16 @@ export default function KidWithACamera() {
   useEffect(() => {
     window.removeEventListener("scroll", handleScroll);
     window.addEventListener("scroll", handleScroll);
+    const preloadImages = () => {
+      for (let i = 0; i < frameCount; i++) {
+        let img = new Image();
+        img.src = `/images/kwacimationAlpha/KWACIntro${i
+          .toString()
+          .padStart(3, "0")}.png`;
+        console.log(img.src);
+      }
+    };
+    preloadImages();
     fetchData();
 
     return function cleanup() {
@@ -65,20 +75,14 @@ export default function KidWithACamera() {
 
   return (
     <>
-      <div className="KidWithACamera flex-col justify-center bg-[url('../public/images/BackgroundTile.png')]">
+      <div className="KidWithACamera flex-col justify-center bg-[url('/images/BackgroundTile.png')]">
         <div className="animationContainer">
           <div className="flex sticky h-screen top-14 justify-center">
-            <Image
+            <img
               id="animation"
-              src={
-                imgSrc == ""
-                  ? "/images/kwacimationAlpha/KWACIntro000.png"
-                  : imgSrc
-              }
+              src={imgSrc}
               alt="KidWithACamera logo animation"
-              fill={true}
-              className="aspect-video w-screen md:h-screen md:w-auto object-contain"
-              unoptimized
+              className="aspect-video w-screen object-contain"
             />
           </div>
         </div>
