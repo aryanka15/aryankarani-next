@@ -12,9 +12,7 @@ export default function KidWithACamera() {
   const [data, setData] = useState([new VideoData()]);
   const [hasFetched, setFetched] = useState(false);
   let src = "/images/kwacimationAlpha";
-  if (document.documentElement.clientWidth <= 768) {
-    src += "Mobile";
-  }
+
   const fetchData = async () => {
     const dataRef = ref(db, "server/resources/youtubeData");
     onValue(dataRef, (snapshot) => {
@@ -51,6 +49,9 @@ export default function KidWithACamera() {
   useEffect(() => {
     window.removeEventListener("scroll", handleScroll);
     window.addEventListener("scroll", handleScroll);
+    if (document.documentElement.clientWidth <= 768) {
+      src += "Mobile";
+    }
     const preloadImages = () => {
       for (let i = 0; i < frameCount; i++) {
         let img = new Image();

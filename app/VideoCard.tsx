@@ -9,12 +9,13 @@ export default function VideoCard(props: { data: VideoData }) {
   };
 
   return (
-    <div className="VideoCard flex flex-col mx-auto p-5 rounded-lg border-4 justify-center text-center border-gray-800 bg-gray-400">
+    <div className="VideoCard flex flex-col mx-auto p-5 rounded-lg justify-center text-center bg-neutral-100 border-red-500 border-4">
       <div>
         <NextImage
           src={data.thumbnail}
           width={640}
           height={480}
+          className={"aspect-video object-cover"}
           alt="video thumbnail"
         />
       </div>
