@@ -10,7 +10,7 @@ export default function Home() {
         </div>
         <div className="flex flex-col items-center text-center text-white">
           <h1 className="text-2xl px-5 md:text-3xl">
-            Hi! I'm Aryan Karani. That message up there? I'm not that
+            Hi! {"I'm"} Aryan Karani. That message up there? {"I'm"} not that
             cool-sounding in real life. My{" "}
             <a
               href="https://youtube.com/@aryankarani"

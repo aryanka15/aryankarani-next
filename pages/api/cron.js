@@ -1,15 +1,15 @@
-import {NextResponse} from "next/server";
-import {getDatabase, ref, set} from "firebase/database";
-import {app, db} from '../../firebase'
+import {ref, set} from "firebase/database";
+import {db} from '../../app/firebase'
 const {google} = require('googleapis')
 
 const service = google.youtube('v3');
-export async function GET() {
-    const res: any = await getPlaylistData()
-    const items = res.data.items;
+export default async function handler(req, res) {
+    const funcVal = await getPlaylistData()
+    let response = await JSON.parse(funcVal);
+    const items = response.data.items;
     try {
-        let videos:any = [];
-        items.forEach((element:any) => {
+        let videos = [];
+        items.forEach((element) => {
             let vidId = element["contentDetails"]["videoId"];
             let title = element["snippet"]["title"];
             let thumbnail = element["snippet"]["thumbnails"]["standard"]["url"];
@@ -24,22 +24,20 @@ export async function GET() {
         })
         await set(ref(db, 'server/resources/youtubeData'), videos);
     }
-    catch (err:any) {
+    catch (err) {
         console.log(err.statusCode + " : " + err);
     }
-    return new Response(JSON.stringify(res.data.items), {
-        status: 200
-    })
+    return res.status(200).json({"message": "Success"})
 }
 
 async function getPlaylistData() {
     return new Promise((resolve, reject) => {
         service.playlistItems.list({
-            auth: process.env.API_KEY,
+            key: process.env.API_KEY,
             part: "snippet,contentDetails,status",
             playlistId: process.env.UPLOADS_ID,
             maxResults: 12
-        }, async function(err:any, res:any) {
+        }, async function(err, res) {
             if (err) {
                 console.log("The API returned an error: " + err);
                 return;
@@ -51,7 +49,8 @@ async function getPlaylistData() {
                 console.log('This channel\'s latest video is: ' + playlistItems[0].snippet.title)
                 // console.log(playlistItems)
             }
-            resolve(res)
+            let response = JSON.stringify(res)
+            resolve(response)
         })
     })
 }

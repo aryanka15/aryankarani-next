@@ -87,6 +87,9 @@ export default function Nav() {
           <li className="mx-3 block">
             <Link href={"/about"}>About</Link>
           </li>
+          <li className="mx-3 block">
+            <Link href={"/blog"}>About</Link>
+          </li>
         </ul>
       </div>
     </nav>
