@@ -32,7 +32,7 @@ export default function Nav() {
   });
 
   return (
-    <nav className="Nav fixed z-10 w-full bg-black/50 text-white">
+    <nav className="Nav fixed top-0 z-10 w-full bg-black/50 text-white">
       <div className="flex flex-row items-center justify-around md:justify-start py-3">
         <div className="flex md:absolute md:mx-10 items-center md:justify-start">
           <Link href={"/"} className="flex items-center">
@@ -54,6 +54,9 @@ export default function Nav() {
             </li>
             <li className="mx-3 block">
               <Link href={"/about"}>About</Link>
+            </li>
+            <li className="mx-3 block">
+              <Link href={"/blog"}>Blog</Link>
             </li>
           </ul>
         </div>
@@ -88,7 +91,7 @@ export default function Nav() {
             <Link href={"/about"}>About</Link>
           </li>
           <li className="mx-3 block">
-            <Link href={"/blog"}>About</Link>
+            <Link href={"/blog"}>Blog</Link>
           </li>
         </ul>
       </div>

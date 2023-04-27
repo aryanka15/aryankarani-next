@@ -2,7 +2,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <>
-      <div className="Home flex flex-col h-screen bg-no-repeat justify-center items-center space-y-10 bg-cover bg-[url('/images/MajesticCPMobile.jpg')] md:bg-[url('/images/MajesticCP.jpg')]">
+      <div className="Home flex flex-col h-full overflow-clip bg-no-repeat justify-center items-center space-y-10 bg-cover bg-[url('/images/MajesticCPMobile.jpg')] md:bg-[url('/images/MajesticCP.jpg')]">
         <div className="flex flex-row text-center items-center justify-center">
           <h1 className="text-4xl md:text-5xl text-white">
             Develop. Create. Inspire.

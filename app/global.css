@@ -10,3 +10,11 @@
   height: 500vh;
 }
 
+.blog-title-stroke {
+  -webkit-text-stroke: 2px lightgray;
+}
+
+.blog-subtitle-stroke {
+  -webkit-text-stroke: 3px black;
+}
+

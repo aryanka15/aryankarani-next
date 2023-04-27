@@ -1,6 +1,7 @@
 import "./global.css";
 import Nav from "./Nav";
 import { clamp } from "./utils";
+import {Analytics} from "@vercel/analytics/react";
 
 export default function RootLayout({
   children,
@@ -14,9 +15,10 @@ export default function RootLayout({
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body>
+      <body className={"h-screen"}>
         <Nav />
         {children}
+        <Analytics />
       </body>
     </html>
   );
