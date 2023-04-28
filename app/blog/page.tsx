@@ -10,6 +10,9 @@ const bungee = Bungee({
   display: "swap",
 });
 export default function Blog() {
+
+  
+
   return (
     <div className={"w-screen bg-neutral-700"}>
       <div className={`Blog flex flex-col h-full text-center items-center ${bungee.className}   `}>
@@ -24,164 +27,10 @@ export default function Blog() {
           </h1>
         </div>
         <div className="BlogMain grid grid-cols-1 md:grid-cols-3 auto-rows-auto md:grid-rows-1 gap-x-5 gap-y-5 mx-5 mb-10">
-          <BlogCard
-            data={
-              new BlogData(
-                0,
-                "The Greatest AI In The World - NoGPT",
-                "/images/MajesticCP.jpg",
-                "asgduasuhdouas",
-                "sahdisahdosah"
-              )
-            }
-            main={true}
-          ></BlogCard>
-          <BlogCard
-            data={
-              new BlogData(
-                1,
-                "sdashdasoud",
-                "/images/MajesticCP.jpg",
-                "asgduasuhdouas",
-                "sahdisahdosah"
-              )
-            }
-            main={true}
-          ></BlogCard>
-          <BlogCard
-            data={
-              new BlogData(
-                2,
-                "sdashdasoud",
-                "/images/MajesticCP.jpg",
-                "asgduasuhdouas",
-                "sahdisahdosah"
-              )
-            }
-            main={true}
-          ></BlogCard>
+            {/*Blog Data-3 latest posts*/}
         </div>
         <div className="BlogPosts grid grid-cols-2 md:grid-cols-5 grid-rows-3 md:grid-rows-2 gap-x-5 gap-y-5 mx-5 mb-10">
-          <BlogCard
-            data={
-              new BlogData(
-                0,
-                "The Greatest AI In The World - NoGPT",
-                "/images/MajesticCP.jpg",
-                "asgduasuhdouas",
-                "sahdisahdosah"
-              )
-            }
-            main={false}
-          ></BlogCard>
-          <BlogCard
-            data={
-              new BlogData(
-                1,
-                "sdashdasoud",
-                "/images/MajesticCP.jpg",
-                "asgduasuhdouas",
-                "sahdisahdosah"
-              )
-            }
-            main={false}
-          ></BlogCard>
-          <BlogCard
-            data={
-              new BlogData(
-                2,
-                "sdashdasoud",
-                "/images/MajesticCP.jpg",
-                "asgduasuhdouas",
-                "sahdisahdosah"
-              )
-            }
-            main={false}
-          ></BlogCard>
-          <BlogCard
-            data={
-              new BlogData(
-                0,
-                "The Greatest AI In The World - NoGPT",
-                "/images/MajesticCP.jpg",
-                "asgduasuhdouas",
-                "sahdisahdosah"
-              )
-            }
-            main={false}
-          ></BlogCard>
-          <BlogCard
-            data={
-              new BlogData(
-                0,
-                "The Greatest AI In The World - NoGPT",
-                "/images/MajesticCP.jpg",
-                "asgduasuhdouas",
-                "sahdisahdosah"
-              )
-            }
-            main={false}
-          ></BlogCard>
-            <BlogCard
-                data={
-                    new BlogData(
-                        0,
-                        "The Greatest AI In The World - NoGPT",
-                        "/images/MajesticCP.jpg",
-                        "asgduasuhdouas",
-                        "sahdisahdosah"
-                    )
-                }
-                main={false}
-            ></BlogCard>
-            <BlogCard
-                data={
-                    new BlogData(
-                        0,
-                        "The Greatest AI In The World - NoGPT",
-                        "/images/MajesticCP.jpg",
-                        "asgduasuhdouas",
-                        "sahdisahdosah"
-                    )
-                }
-                main={false}
-            ></BlogCard>
-            <BlogCard
-                data={
-                    new BlogData(
-                        0,
-                        "The Greatest AI In The World - NoGPT",
-                        "/images/MajesticCP.jpg",
-                        "asgduasuhdouas",
-                        "sahdisahdosah"
-                    )
-                }
-                main={false}
-            ></BlogCard>
-            <BlogCard
-                data={
-                    new BlogData(
-                        0,
-                        "The Greatest AI In The World - NoGPT",
-                        "/images/MajesticCP.jpg",
-                        "asgduasuhdouas",
-                        "sahdisahdosah"
-                    )
-                }
-                main={false}
-            ></BlogCard>
-            <BlogCard
-                data={
-                    new BlogData(
-                        0,
-                        "The Greatest AI In The World - NoGPT",
-                        "/images/MajesticCP.jpg",
-                        "asgduasuhdouas",
-                        "sahdisahdosah"
-                    )
-                }
-                main={false}
-            ></BlogCard>
+          {/*Blog data-10*/}
         </div>
         <button className={`mb-10 p-3 px-10 text-2xl rounded-xl border-black border-4 bg-blue-500 w-fit hover:bg-red-500 md:focus:bg-red-500 focus:bg-blue-700 transition`}>All Articles</button>
       </div>
