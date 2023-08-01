@@ -20,7 +20,7 @@ export default function Blog() {
           className={`flex flex-col md:flex-row text-center justify-center text-4xl md:text-6xl mt-36 mb-10 ${bungee.className}`}
         >
           <h1 className={"blog-title-stroke text-neutral-900"}>
-            Aryan Karani's
+            Aryan Karani&#39;s
           </h1>
           <h1 className={"blog-subtitle-stroke text-red-500"}>
             &nbsp;Snapshots
