@@ -9,7 +9,7 @@ export default function KidWithACamera() {
   const [data, setData] = useState([new VideoData()]);
   const [hasFetched, setFetched] = useState(false);
   let src = "/images/kwacimationAlpha";
-  let extension = ".png"
+  let extension = ".webp"
   const fetchData = async () => {
     const dataRef = ref(db, "server/resources/youtubeData");
     onValue(dataRef, (snapshot) => {
