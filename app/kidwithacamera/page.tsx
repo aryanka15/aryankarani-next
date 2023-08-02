@@ -4,15 +4,12 @@ import { useEffect, useState } from "react";
 import VideoCard from "../VideoCard";
 import VideoData from "../VideoData";
 import { db } from "../firebase";
-import NextImage from "next/image";
-
 import { onValue, ref } from "firebase/database";
-
 export default function KidWithACamera() {
   const [data, setData] = useState([new VideoData()]);
   const [hasFetched, setFetched] = useState(false);
   let src = "/images/kwacimationAlpha";
-
+  let extension = ".png"
   const fetchData = async () => {
     const dataRef = ref(db, "server/resources/youtubeData");
     onValue(dataRef, (snapshot) => {
@@ -43,7 +40,7 @@ export default function KidWithACamera() {
       frameCount - 1,
       Math.ceil(scrollFraction * frameCount)
     );
-    setImg(`${src}/KWACIntro${frameIndex.toString().padStart(3, "0")}.png`);
+    setImg(`${src}/KWACIntro${frameIndex.toString().padStart(3, "0")}${extension}`);
   }
 
   useEffect(() => {
@@ -52,11 +49,12 @@ export default function KidWithACamera() {
     if (document.documentElement.clientWidth <= 768) {
       src += "Mobile";
     }
+    src+="/webp"
     const preloadImages = () => {
       for (let i = 0; i < frameCount; i++) {
         let img = new Image();
-        img.src = `${src}/KWACIntro${i.toString().padStart(3, "0")}.png`;
-        console.log(img.src);
+        img.src = `${src}/KWACIntro${i.toString().padStart(3, "0")}${extension}`;
+        // console.log("Preloaded: " + img.src);
       }
     };
     preloadImages();
@@ -67,7 +65,7 @@ export default function KidWithACamera() {
     };
   }, [hasFetched]);
 
-  let [imgSrc, setImg] = useState(`${src}/KWACIntro000.png`);
+  let [imgSrc, setImg] = useState(`${src}/KWACIntro000${extension}`);
 
   const frameCount = 150;
 
@@ -79,7 +77,6 @@ export default function KidWithACamera() {
             <img
               id="animation"
               src={imgSrc}
-              alt="KidWithACamera logo animation"
               className="aspect-video w-screen object-contain"
             />
           </div>
