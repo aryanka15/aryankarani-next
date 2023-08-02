@@ -1,5 +1,5 @@
 import NextImage from "next/image";
-import VideoData from "./VideoData";
+import VideoData from "../VideoData";
 
 export default function VideoCard(props: { data: VideoData }) {
   const data = props.data;
