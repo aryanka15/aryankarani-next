@@ -33,7 +33,7 @@ export default async function PhotoPage({params}: {params: { id: any; }}) {
 
     return (
         <>
-            <div className={"flex flex-col w-screen items-center mt-36 pb-20 space-y-10"}>
+            <div className={"flex flex-col w-screen justify-center items-center mt-36 pb-20 space-y-10"}>
                 <h1 className={"text-5xl md:text-6xl mx-5 text-center font-bold"}>{imageData.title}</h1>
                 <ClientImage imageData={imageData}></ClientImage>
                 <div className={"flex flex-col space-y-5 md:flex-row w-[80%] md:w-full mx-10 items-center justify-evenly mb-20"}>

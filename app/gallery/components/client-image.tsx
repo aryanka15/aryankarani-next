@@ -16,8 +16,8 @@ export default function ClientImage(props: {
 }) {
     const imageData = props.imageData;
     return (
-        <div className={"w-full mx-10"}>
-            <CldImage preserveTransformations priority format={"auto"} overlays={[
+        <div className={"flex justify-center w-full mx-10"}>
+            <CldImage priority format={"auto"} overlays={[
                 {
                     position: {
                         gravity: "south_east",
