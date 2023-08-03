@@ -1,6 +1,5 @@
 "use client";
 
-import PicData from "../PicData";
 import Link from "next/link";
 import {CldImage, getCldImageUrl} from 'next-cloudinary';
 
