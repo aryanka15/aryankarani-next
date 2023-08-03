@@ -1,5 +1,4 @@
 import PicCard from "../gallery/components/pic-card";
-import cloudinary from "../utils/cloudinary"
 import {getPicIds} from "../utils/get-pic-ids";
 
 async function getData() {
@@ -36,7 +35,7 @@ export default async function Gallery() {
         <div className={"md:mt-40 mx-5 mb-10 mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 content-evenly gap-4"}>
             {
                 picData.map((element, index) => (
-                    <PicCard key={element.id} index={index} data={element}></PicCard>
+                    <PicCard key={element.id} data={element}></PicCard>
                 ))
             }
         </div>

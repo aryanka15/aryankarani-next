@@ -1,14 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import {CldImage, getCldImageUrl} from 'next-cloudinary';
+import {CldImage} from 'next-cloudinary';
 
 export default function PicCard(props: {
-    index: number,
     data: { id: any; picture: any; width: any; height: any; title: any; description: any; camera: any; location: any; }
 }) {
     const data = props.data;
-    const index = props.index;
     const image = data.id;
     console.log("Image: ", image)
     // const url = getCldImageUrl({
