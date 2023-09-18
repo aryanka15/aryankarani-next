@@ -38,7 +38,9 @@ export default function PicCard(props: {
                 <div className={`flex flex-row justify-center relative`}>
                     <CldImage quality={"60"} format={"auto"} sizes={
                         "(min-width: 768px) 50vw, (min-width: 1024px) 33vw, 100vw"
-                    } overlays={
+                    }
+                              rawTransformations={["ar_1.5,c_crop"]}
+                              overlays={
                         [
                             {
                                 position: {
@@ -49,7 +51,7 @@ export default function PicCard(props: {
                                 text: {
                                     color: "white",
                                     fontFamily: "Roboto",
-                                    fontSize: 20,
+                                    fontSize: 40,
                                     fontWeight: "regular",
                                     text: "ARYAN KARANI"
                                 }
