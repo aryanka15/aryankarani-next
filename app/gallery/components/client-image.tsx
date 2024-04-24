@@ -25,6 +25,7 @@ export default function ClientImage(props: {
       <CldImage
         priority
         format={"auto"}
+        quality={100}
         overlays={[
           {
             position: {
@@ -42,7 +43,7 @@ export default function ClientImage(props: {
           },
         ]}
         alt={imageData.description}
-        sizes={"(min-width: 600px) 60vw, 100vw"}
+        sizes={"100vw"}
         src={imageData.id}
         width={imageData.width}
         height={imageData.height}
