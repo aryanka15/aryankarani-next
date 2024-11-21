@@ -1,5 +1,5 @@
 import {ref, set} from "firebase/database";
-import {db} from '../../app/firebase'
+import {db} from '../../app/utils/firebase'
 const {google} = require('googleapis')
 
 const service = google.youtube('v3');

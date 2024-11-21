@@ -36,7 +36,7 @@ export default function Nav() {
       <div className="flex flex-row items-center justify-around md:justify-start py-3">
         <div className="flex md:absolute md:mx-10 items-center md:justify-start">
           <Link href={"/"} className="flex items-center">
-            <BsCameraFill className="w-5 h-5 md:w-10 md:h-10" />
+            <BsCameraFill aria-label={"Back to Home"} className="w-5 h-5 md:w-10 md:h-10" />
           </Link>
         </div>
         <div className="hidden md:flex justify-center w-full py-1">
