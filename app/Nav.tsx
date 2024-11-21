@@ -55,9 +55,6 @@ export default function Nav() {
             <li className="mx-3 block">
               <Link href={"/about"}>About</Link>
             </li>
-            <li className="mx-3 block">
-              <Link href={"/blog"}>Blog</Link>
-            </li>
           </ul>
         </div>
         <div className="flex md:hidden items-center">
