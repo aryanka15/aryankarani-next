@@ -1,9 +1,43 @@
-import Image from "next/image";
-import PicData from "../PicData";
+"use client";
+
 import Link from "next/link";
-export default function PicCard(props: { data: PicData }) {
+import { CldImage } from "next-cloudinary";
+
+export default function PicCard(props: {
+  data: {
+    id: any;
+    picture: any;
+    width: any;
+    height: any;
+    title: any;
+    description: any;
+    camera: any;
+    location: any;
+  };
+}) {
   const data = props.data;
-  const image = data.picture;
+  const image = data.id;
+  console.log("Image: ", image);
+  // const url = getCldImageUrl({
+  //     width: "auto",
+  //     src: image,
+  //     overlays: [
+  //         {
+  //             position: {
+  //                 gravity: "south_east",
+  //                 x: 0.02,
+  //                 y: 0.02,
+  //             },
+  //             text: {
+  //                 color: "white",
+  //                 fontFamily: "Roboto",
+  //                 fontSize: 20,
+  //                 fontWeight: "regular",
+  //                 text: "ARYAN KARANI"
+  //             }
+  //         }
+  //     ]
+  // });
 
   return (
     <Link href={`/gallery/${data.id}`}>

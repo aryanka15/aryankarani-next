@@ -23,7 +23,7 @@ export default function Home() {
         </div>
         <div>
           <Link href={"/kidwithacamera"}>
-            <button className="text-xl text-center md:text-3xl text-white border-4 p-3 rounded-2xl bg-white/10 hover:bg-white/40">
+            <button aria-label={"Learn More"} className="text-xl text-center md:text-3xl text-white border-4 p-3 rounded-2xl bg-white/10 hover:bg-white/40">
               Learn More
             </button>
           </Link>

@@ -1,6 +1,6 @@
 import "./global.css";
 import Nav from "./Nav";
-import { clamp } from "./utils";
+import { clamp } from "./utils/utils";
 import {Analytics} from "@vercel/analytics/react";
 
 export default function RootLayout({
