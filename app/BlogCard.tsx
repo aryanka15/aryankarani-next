@@ -1,3 +1,5 @@
+"use client";
+
 import NextImage from "next/image";
 import type { SanityDocument } from "@sanity/client";
 import Link from "next/link";
@@ -10,9 +12,6 @@ export default function BlogCard(props: { data: any; main: boolean }) {
     fontSize = "xl";
     background = "red";
   }
-  const redirectToBlog = () => {
-    window.open(`/blog/${data._id}`, "_blank");
-  };
 
   return (
     <div className="BlogCard border-4 border-black">
@@ -33,13 +32,13 @@ export default function BlogCard(props: { data: any; main: boolean }) {
         </h1>
       </div>
       <div className="">
-        <button
-          className={`w-full py-2 border-t-4 border-black bg-${background}-500`}
-        >
-          <Link href={`/blog/${data.slug}`} target="_blank">
+        <Link href={{ pathname: `/blog/${data.slug.current}` }}>
+          <button
+            className={`w-full py-2 border-t-4 border-black bg-${background}-500`}
+          >
             Read
-          </Link>
-        </button>
+          </button>
+        </Link>
       </div>
     </div>
   );
