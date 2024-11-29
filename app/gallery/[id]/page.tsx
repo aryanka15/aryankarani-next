@@ -37,8 +37,10 @@ async function getData(id: string) {
   return imageData;
 }
 
-export default async function PhotoPage({ params }: { params: { id: any } }) {
-  let id = params.id.replace("-", "/");
+type Params = Promise<{ id: any }>;
+
+export default async function PhotoPage({ params }: { params: Params }) {
+  let id = (await params).id.replace("-", "/");
   let imageData: {
     id: any;
     url: any;
@@ -60,7 +62,7 @@ export default async function PhotoPage({ params }: { params: { id: any } }) {
     width: "200",
     effects: [
       {
-        blur: 1000,
+        blur: "1000",
       },
       {
         colorize: "40,co_white",
