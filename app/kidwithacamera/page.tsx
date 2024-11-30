@@ -9,7 +9,7 @@ export default function KidWithACamera() {
   const [data, setData] = useState([new VideoData()]);
   const [hasFetched, setFetched] = useState(false);
   let src = "/images/kwacimationAlpha";
-  let extension = ".webp"
+  let extension = ".webp";
   const fetchData = async () => {
     const dataRef = ref(db, "server/resources/youtubeData");
     onValue(dataRef, (snapshot) => {
@@ -40,7 +40,9 @@ export default function KidWithACamera() {
       frameCount - 1,
       Math.ceil(scrollFraction * frameCount)
     );
-    setImg(`${src}/KWACIntro${frameIndex.toString().padStart(3, "0")}${extension}`);
+    setImg(
+      `${src}/KWACIntro${frameIndex.toString().padStart(3, "0")}${extension}`
+    );
   }
 
   useEffect(() => {
@@ -49,7 +51,7 @@ export default function KidWithACamera() {
     if (document.documentElement.clientWidth <= 768) {
       src += "Mobile";
     }
-    src+="/webp"
+    src += "/webp";
     const preloadImages = () => {
       for (let i = 0; i < frameCount; i++) {
         let img = new Image();
@@ -77,6 +79,7 @@ export default function KidWithACamera() {
             <img
               id="animation"
               src={imgSrc}
+              alt="camera animation"
               className="aspect-video w-screen object-contain"
             />
           </div>

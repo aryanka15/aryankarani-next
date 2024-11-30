@@ -5,7 +5,7 @@ export default function Posts({ posts }: { posts: any }) {
     <>
       <div>
         {posts.map((post: any) => (
-          <BlogCard data={post} main={false}></BlogCard>
+          <BlogCard key={post.slug} data={post} main={false}></BlogCard>
         ))}
       </div>
     </>

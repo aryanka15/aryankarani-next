@@ -49,7 +49,7 @@ export default async function PostPage({
         </div>
         <div className="flex-col gap-y-6 flex text-xl md:text-3xl text-left md:text-3xl font-normal align-center">
           {body.map((text: any) => (
-            <div>{text}</div>
+            <div key={text}>{text}</div>
           ))}
         </div>
       </div>

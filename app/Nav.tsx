@@ -51,9 +51,7 @@ export default function Nav() {
               <Link href={"/kidwithacamera"}>KidWithACamera</Link>
             </li>
             <li className="mx-3 block">
-              <Link href={"/gallery"} className="">
-                Gallery
-              </Link>
+              <Link href={"/gallery"}>Gallery</Link>
             </li>
             <li className="mx-3 block">
               <Link href={"/about"}>About</Link>
