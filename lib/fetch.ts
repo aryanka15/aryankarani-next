@@ -3,7 +3,6 @@ import { postPathsQuery, postQuery, postsQuery } from "./queries";
 
 export async function getPosts() {
     const posts = await client.fetch(postsQuery)
-    console.log(posts)
     return posts; 
 }
 
