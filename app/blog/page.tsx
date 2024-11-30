@@ -12,7 +12,7 @@ export default async function Blog() {
   const posts = await getPosts();
 
   return (
-    <div className={"w-screen h-screen bg-neutral-700"}>
+    <div className={"w-screen h-100 bg-neutral-700"}>
       <div
         className={`Blog flex flex-col h-full text-center items-center ${rubik.className}   `}
       >
@@ -26,7 +26,7 @@ export default async function Blog() {
             &nbsp;SNAPSHOTS
           </h1>
         </div>
-        <div className="BlogPosts grid grid-cols-2 md:grid-cols-3 grid-rows-3 md:grid-rows-2 gap-x-5 gap-y-5 mx-5 md:mx-32 mb-10">
+        <div className="BlogPosts mx-5 md:mx-32 mb-10">
           <Posts posts={posts}></Posts>
         </div>
         {/* <Link

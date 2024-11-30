@@ -1,16 +1,12 @@
 import { getPostData, getPostParams } from "../../../lib/fetch";
-import { Markazi_Text, Rubik } from "next/font/google";
+import { Rubik } from "next/font/google";
+import { PortableText } from "@portabletext/react";
 
 const rubik = Rubik({
   weight: ["400", "600", "700", "800"],
   subsets: ["latin"],
   display: "swap",
 });
-
-export async function generateStaticParams() {
-  const posts = await getPostParams();
-  return posts;
-}
 
 export default async function PostPage({
   params,
@@ -19,12 +15,6 @@ export default async function PostPage({
 }) {
   const post = (await getPostData(await params)) as any;
   const body_components = post.body;
-  var body = [];
-  for (let i = 0; i < body_components.length; i++) {
-    body[i] = body_components[i].children[0].text;
-  }
-  const categories = post.categories.map((category: any) => category.title);
-
   const date = new Date(post.publishedAt);
 
   // Format the date
@@ -47,10 +37,8 @@ export default async function PostPage({
             {formattedDate}
           </div>
         </div>
-        <div className="flex-col gap-y-6 flex text-xl md:text-3xl text-left md:text-3xl font-normal align-center">
-          {body.map((text: any) => (
-            <div key={text}>{text}</div>
-          ))}
+        <div className="flex-col gap-y-6 flex text-xl text-left md:text-3xl font-normal align-center">
+          <PortableText value={body_components}></PortableText>
         </div>
       </div>
     </>
