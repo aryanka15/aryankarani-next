@@ -1,4 +1,5 @@
 import Link from "next/link";
+
 export default function Home() {
   return (
     <>
@@ -10,7 +11,7 @@ export default function Home() {
         </div>
         <div className="flex flex-col items-center text-center text-white">
           <h1 className="text-2xl px-5 md:text-3xl">
-            Hi! {"I'm"} Aryan Karani. That message up there? {"I'm"} not that
+            Hi! {"I'm"} Aryan Karani. That message up there? {"I'm"} not tha
             cool-sounding in real life. My{" "}
             <a
               href="https://youtube.com/@aryankarani"
@@ -23,7 +24,10 @@ export default function Home() {
         </div>
         <div>
           <Link href={"/kidwithacamera"}>
-            <button aria-label={"Learn More"} className="text-xl text-center md:text-3xl text-white border-4 p-3 rounded-2xl bg-white/10 hover:bg-white/40">
+            <button
+              aria-label={"Learn More"}
+              className="text-xl text-center md:text-3xl text-white border-4 p-3 rounded-2xl bg-white/10 hover:bg-white/40"
+            >
               Learn More
             </button>
           </Link>

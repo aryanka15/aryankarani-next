@@ -1,9 +1,17 @@
 "use client";
 
 import NextImage from "next/image";
+import type { SanityDocument } from "@sanity/client";
+import Link from "next/link";
+import { Rubik } from "next/font/google";
 
-import BlogData from "./BlogData";
-export default function BlogCard(props: { data: BlogData; main: boolean }) {
+const rubik = Rubik({
+  weight: ["400", "800", "900"],
+  subsets: ["latin"],
+  display: "swap",
+});
+
+export default function BlogCard(props: { data: any; main: boolean }) {
   const data = props.data;
   let fontSize = "lg";
   let background = "blue";
@@ -11,37 +19,41 @@ export default function BlogCard(props: { data: BlogData; main: boolean }) {
     fontSize = "xl";
     background = "red";
   }
-  const redirectToBlog = () => {
-    window.open(`/blog/${data.id}`, "_blank");
-  };
+
+  function truncate(str: string, maxLength: number) {
+    if (str.length <= maxLength) {
+      return str;
+    } else {
+      return str.slice(0, maxLength) + "...";
+    }
+  }
 
   return (
     <div className="BlogCard border-4 border-black">
       <div>
-        <NextImage
+        {/* <NextImage
           src={data.thumbnail}
           width={1280}
           height={720}
           className={"aspect-video object-cover border-b-4 border-black"}
           alt="video thumbnail"
-        />
+        /> */}
       </div>
-      <div className="flex flex-col justify-center h-[104px] bg-neutral-400">
+      <div className="flex flex-col justify-center h-[108px] md:h-[240px] bg-neutral-400">
         <h1
-          className={`px-3 py-6 text-sm md:text-lg xl:text-${fontSize} font-bold`}
+          className={`px-3 py-6 text-lg md:text-4xl text-${fontSize} font-bold`}
         >
-          {data.title}
+          {truncate(data.title, 40)}
         </h1>
       </div>
       <div className="">
-        <button
-          onClick={redirectToBlog}
-          className={`w-full py-2 border-t-4 border-black bg-${background}-500`}
-        >
-          <a href={`/blog/${data.id}`} target="_blank">
-            Read
-          </a>
-        </button>
+        <Link href={{ pathname: `/blog/${data.slug.current}` }}>
+          <button
+            className={`w-full py-2 border-t-4 font-bold border-black bg-${background}-500 ${rubik.className}`}
+          >
+            READ
+          </button>
+        </Link>
       </div>
     </div>
   );
