@@ -40,26 +40,48 @@ export default function PicCard(props: {
   // });
 
   return (
-    <Link href={`/gallery/${data.id}`}>
-      <div
-        className={`PicCard flex flex-col w-[320px] h-[240px] justify-center text-center`}
-      >
+    <Link
+      href={{
+        pathname: `/gallery/${image.replace("/", "-")}`,
+      }}
+    >
+      <div className={`PicCard flex flex-col justify-center text-center`}>
         <div className={`flex flex-row justify-center relative`}>
-          <Image
+          <CldImage
+            quality={"60"}
+            format={"auto"}
+            sizes={"(min-width: 768px) 50vw, (min-width: 1024px) 33vw, 100vw"}
+            rawTransformations={["ar_1.5,c_crop"]}
+            overlays={[
+              {
+                position: {
+                  gravity: "south_east",
+                  x: 0.02,
+                  y: 0.02,
+                },
+                text: {
+                  color: "white",
+                  fontFamily: "Roboto",
+                  fontSize: 40,
+                  fontWeight: "regular",
+                  text: "ARYAN KARANI",
+                },
+              },
+            ]}
             className={"rounded-lg"}
             alt={data.description}
-            src={data.picture}
-            width={320}
-            height={240}
-          ></Image>
-          <div className={"absolute bottom-0 w-full h-fit bg-white/40 p-1"}>
+            src={image}
+            width={data.width}
+            height={data.height}
+          ></CldImage>
+          <div className={"absolute bottom-0 w-full h-fit bg-white/80 p-1"}>
             <div className={"text-center"}>
               <h1
                 className={
                   "px-2 overflow-hidden overflow-ellipsis whitespace-nowrap text-center"
                 }
               >
-                {data.description}
+                {data.title}
               </h1>
             </div>
           </div>
