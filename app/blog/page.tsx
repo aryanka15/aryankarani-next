@@ -8,7 +8,7 @@ const rubik = Rubik({
   display: "swap",
 });
 
-export const revalidate = 30;
+export const dynamic = "force-dynamic";
 
 export default async function Blog() {
   const posts = await getPosts();
