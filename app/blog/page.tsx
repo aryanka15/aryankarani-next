@@ -1,9 +1,9 @@
-import { Bungee } from "next/font/google";
+import { Rubik } from "next/font/google";
 import Posts from "./posts";
 import { getPosts } from "../../lib/fetch";
 
-const bungee = Bungee({
-  weight: "400",
+const rubik = Rubik({
+  weight: ["400", "800", "900"],
   subsets: ["latin"],
   display: "swap",
 });
@@ -14,22 +14,19 @@ export default async function Blog() {
   return (
     <div className={"w-screen h-screen bg-neutral-700"}>
       <div
-        className={`Blog flex flex-col h-full text-center items-center ${bungee.className}   `}
+        className={`Blog flex flex-col h-full text-center items-center ${rubik.className}   `}
       >
         <div
-          className={`flex flex-col md:flex-row text-center justify-center text-4xl md:text-6xl mt-36 mb-10 ${bungee.className}`}
+          className={`flex flex-col md:flex-row text-center justify-center text-5xl md:text-7xl mt-24 md:mt-36 mb-10 ${rubik.className}`}
         >
-          <h1 className={"blog-title-stroke text-neutral-900"}>
-            Aryan Karani&#39;s
+          <h1 className={"blog-title-stroke font-[900] text-neutral-900"}>
+            ARYAN KARANI&#39;S
           </h1>
-          <h1 className={"blog-subtitle-stroke text-red-500"}>
-            &nbsp;Snapshots
+          <h1 className={"blog-subtitle-stroke font-[900] text-red-500"}>
+            &nbsp;SNAPSHOTS
           </h1>
         </div>
-        <div className="BlogMain grid grid-cols-1 md:grid-cols-3 auto-rows-auto md:grid-rows-1 gap-x-5 gap-y-5 mx-5 mb-10">
-          {/*Blog Data-3 latest posts*/}
-        </div>
-        <div className="BlogPosts grid grid-cols-2 md:grid-cols-5 grid-rows-3 md:grid-rows-2 gap-x-5 gap-y-5 mx-5 mb-10">
+        <div className="BlogPosts grid grid-cols-2 md:grid-cols-3 grid-rows-3 md:grid-rows-2 gap-x-5 gap-y-5 mx-5 md:mx-32 mb-10">
           <Posts posts={posts}></Posts>
         </div>
         {/* <Link
