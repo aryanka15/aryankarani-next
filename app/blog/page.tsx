@@ -19,7 +19,7 @@ export default async function Blog() {
         className={`Blog flex flex-col h-full text-center items-center ${rubik.className}   `}
       >
         <div
-          className={`flex flex-col md:flex-row text-center justify-center text-5xl md:text-7xl mt-24 md:mt-36 mb-10 ${rubik.className}`}
+          className={`flex flex-col lg:flex-row text-center justify-center text-5xl md:text-7xl mt-24 md:mt-36 mb-10 ${rubik.className}`}
         >
           <h1 className={"blog-title-stroke font-[900] text-neutral-900"}>
             ARYAN KARANI&#39;S
@@ -28,7 +28,7 @@ export default async function Blog() {
             &nbsp;SNAPSHOTS
           </h1>
         </div>
-        <div className="BlogPosts mx-5 md:mx-32 mb-10">
+        <div className="BlogPosts mx-5 lg:mx-32 mb-10">
           <Posts posts={posts}></Posts>
         </div>
         {/* <Link
