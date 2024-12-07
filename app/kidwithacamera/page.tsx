@@ -5,6 +5,7 @@ import VideoCard from "./components/VideoCard";
 import VideoData from "./VideoData";
 import { db } from "../utils/firebase";
 import { onValue, ref } from "firebase/database";
+
 export default function KidWithACamera() {
   const [data, setData] = useState([new VideoData()]);
   const [hasFetched, setFetched] = useState(false);

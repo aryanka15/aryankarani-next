@@ -1,12 +1,17 @@
 import { Rubik } from "next/font/google";
 import Posts from "./posts";
 import { getPosts } from "../../lib/fetch";
+import { Metadata } from "next";
 
 const rubik = Rubik({
   weight: ["400", "800", "900"],
   subsets: ["latin"],
   display: "swap",
 });
+
+export const metadata: Metadata = {
+  title: "Aryan Karani - Blog",
+};
 
 export const dynamic = "force-dynamic";
 
