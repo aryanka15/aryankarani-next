@@ -37,7 +37,7 @@ export default async function PostPage({
             {formattedDate}
           </div>
         </div>
-        <div className="flex-col gap-y-6 flex text-xl text-left md:text-3xl font-normal align-center">
+        <div className="flex-col blog-body text-xl gap-y-6 md:text-2xl flex text-left align-center">
           <PortableText value={body_components}></PortableText>
         </div>
       </div>
