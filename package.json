@@ -30,6 +30,7 @@
     "react-icons": "^4.7.1",
     "react-redux": "^8.0.5",
     "sanity": "^3.65.1",
+    "sanity-image": "^1.0.0",
     "scrollex": "^2.0.1",
     "sharp": "^0.33.5",
     "typescript": "^5.7.2",

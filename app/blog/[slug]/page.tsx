@@ -1,12 +1,29 @@
 import { getPostData, getPostParams } from "../../../lib/fetch";
 import { Rubik } from "next/font/google";
 import { PortableText } from "@portabletext/react";
+import Image from "next/image";
+import { SanityImage } from "sanity-image";
 
 const rubik = Rubik({
   weight: ["400", "600", "700", "800"],
   subsets: ["latin"],
   display: "swap",
 });
+
+const ImageComponent = ({ value }: any) => {
+  return (
+    <SanityImage
+      id={value.asset._ref}
+      projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}
+      dataset={process.env.NEXT_PUBLIC_SANITY_DATASET}
+      alt={value.alt || " "}
+      width={1000}
+      height={1000}
+      mode="contain"
+      className="self-center rounded-lg shadow-2xl"
+    ></SanityImage>
+  );
+};
 
 export default async function PostPage({
   params,
@@ -38,7 +55,14 @@ export default async function PostPage({
           </div>
         </div>
         <div className="flex-col blog-body text-xl gap-y-6 md:text-2xl flex text-left align-center">
-          <PortableText value={body_components}></PortableText>
+          <PortableText
+            components={{
+              types: {
+                image: ImageComponent,
+              },
+            }}
+            value={body_components}
+          ></PortableText>
         </div>
       </div>
     </>
