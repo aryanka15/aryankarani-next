@@ -17,10 +17,10 @@ const ImageComponent = ({ value }: any) => {
       projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}
       dataset={process.env.NEXT_PUBLIC_SANITY_DATASET}
       alt={value.alt || " "}
-      width={1000}
-      height={1000}
+      width={500}
+      height={500}
       mode="contain"
-      className="self-center rounded-lg shadow-2xl"
+      className="self-center rounded-lg shadow-2xl md:w-[800px] w-[300px] h-auto object-cover"
     ></SanityImage>
   );
 };
@@ -42,29 +42,27 @@ export default async function PostPage({
   }).format(date);
 
   return (
-    <>
-      <div
-        className={`flex bg-neutral-800 text-neutral-300 w-screen h-100 gap-y-5 md:gap-y-10 flex-col items-center p-10 md:p-20 pt-28 md:pt-40 ${rubik.className}`}
-      >
-        <div className="text-4xl text-left md:text-6xl font-[700]  md:w-auto">
-          {post.title}
-          <div className="text-xl md:text-3xl text-neutral-500 font-[500]">
-            {post.authorName}
-            {" | "}
-            {formattedDate}
-          </div>
-        </div>
-        <div className="flex-col blog-body text-xl gap-y-6 md:text-2xl flex text-left align-center">
-          <PortableText
-            components={{
-              types: {
-                image: ImageComponent,
-              },
-            }}
-            value={body_components}
-          ></PortableText>
+    <div
+      className={`flex bg-neutral-800 text-neutral-300 w-screen h-100 gap-y-5 md:gap-y-10 flex-col items-center p-10 md:p-20 pt-28 md:pt-40 ${rubik.className}`}
+    >
+      <div className="text-4xl text-left md:text-6xl font-[700]  md:w-auto">
+        {post.title}
+        <div className="text-xl md:text-3xl text-neutral-500 font-[500]">
+          {post.authorName}
+          {" | "}
+          {formattedDate}
         </div>
       </div>
-    </>
+      <div className="flex-col blog-body w-full text-xl gap-y-6 md:text-2xl flex text-left align-center">
+        <PortableText
+          components={{
+            types: {
+              image: ImageComponent,
+            },
+          }}
+          value={body_components}
+        ></PortableText>
+      </div>
+    </div>
   );
 }

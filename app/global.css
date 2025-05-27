@@ -25,30 +25,33 @@
 
 .blog-body {
   h1 {
-    @apply text-8xl;
+    @apply text-6xl md:text-8xl;
     @apply font-black
   }
   h2 {
-    @apply text-6xl;
+    @apply text-4xl md:text-6xl;
     @apply font-extrabold;
   }
   h3 {
-    @apply text-5xl;
+    @apply text-3xl md:text-5xl;
     @apply font-bold;
   }
   h4 {
-    @apply text-4xl;
+    @apply text-3xl md:text-4xl;
     @apply font-bold;
   }
   h5 {
-    @apply text-3xl;
+    @apply text-2xl md:text-3xl;
     @apply font-semibold;
   }
   h6 {
-    @apply text-2xl;
+    @apply text-xl md:text-2xl;
     @apply font-medium;
   }
   ul {
     @apply list-disc list-inside space-y-4 mx-5;
+  }
+  a {
+    word-wrap: break-word;
   }
 }
