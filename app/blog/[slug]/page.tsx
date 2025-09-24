@@ -43,17 +43,21 @@ export default async function PostPage({
 
   return (
     <div
-      className={`flex bg-neutral-800 text-neutral-300 w-screen h-100 gap-y-5 md:gap-y-10 flex-col items-center p-10 md:p-20 pt-28 md:pt-40 ${rubik.className}`}
+      className={`w-screen min-h-screen bg-neutral-700 text-neutral-200 flex flex-col items-center pt-28 md:pt-40 p-4 md:p-8 ${rubik.className}`}
     >
-      <div className="text-4xl text-left md:text-6xl font-[700]  md:w-auto">
-        {post.title}
-        <div className="text-xl md:text-3xl text-neutral-500 font-[500]">
+      <div className="flex flex-col text-center items-center w-full max-w-4xl">
+        <div className="text-4xl md:text-6xl font-extrabold text-white px-4">
+          {post.title}
+        </div>
+        <div className="text-lg md:text-2xl text-red-500 font-bold mt-2">
           {post.authorName}
-          {" | "}
+        </div>
+        <div className="text-base md:text-lg text-neutral-400 font-medium mb-10 md:mb-16">
           {formattedDate}
         </div>
       </div>
-      <div className="flex-col blog-body w-full text-xl gap-y-6 md:text-2xl flex text-left align-center">
+
+      <div className="blog-body w-full max-w-4xl text-lg md:text-xl leading-relaxed flex flex-col gap-y-8">
         <PortableText
           components={{
             types: {

@@ -18,9 +18,11 @@ export default function ClientImage(props: {
   const imageData = props.imageData;
   return (
     <div
-      className={
-        "flex justify-center w-fit mx-10 border-4 shadow-xl border-white/60 rounded-md"
-      }
+      className="
+    shadow-2xl rounded-2xl 
+    overflow-hidden 
+    ring-1 ring-white/10 w-full
+  "
     >
       <CldImage
         priority
@@ -28,11 +30,7 @@ export default function ClientImage(props: {
         quality={100}
         overlays={[
           {
-            position: {
-              gravity: "south_east",
-              x: 0.02,
-              y: 0.02,
-            },
+            position: { gravity: "south_east", x: 0.02, y: 0.02 },
             text: {
               color: "white",
               fontFamily: "Roboto",
@@ -47,7 +45,7 @@ export default function ClientImage(props: {
         src={imageData.id}
         width={imageData.width}
         height={imageData.height}
-      ></CldImage>
+      />
     </div>
   );
 }

@@ -9,31 +9,50 @@ export default function VideoCard(props: { data: VideoData }) {
   };
 
   return (
-    <div className="VideoCard flex flex-col mx-auto p-5 rounded-lg justify-center text-center bg-neutral-100 border-red-500 border-4">
-      <div>
-        <NextImage
-          src={data.thumbnail}
-          width={640}
-          height={480}
-          className={"aspect-video object-cover"}
-          alt="video thumbnail"
-        />
-      </div>
-      <div className="mx-1 my-1">
-        <h1 className="text-sm md:text-lg xl:text-2xl font-bold">
-          {data.title}
-        </h1>
-      </div>
-      <div className="mx-1">
-        <button
-          onClick={redirectToVideo}
-          className="w-full py-2 border-2 border-black bg-red-500"
+    <a
+      href={`https://youtube.com/watch?v=${data.id}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="
+        VideoCard group relative flex flex-col h-64 md:h-72 rounded-2xl
+        shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer
+      "
+    >
+      {/* --- Thumbnail as Background Image --- */}
+      <NextImage
+        src={data.thumbnail}
+        layout="fill"
+        objectFit="cover"
+        className="absolute z-0 transition-transform duration-300 group-hover:scale-110"
+        alt="video thumbnail"
+      />
+
+      {/* --- Frosted Glass Layer --- */}
+      <div className="absolute inset-0 bg-neutral-700/30 backdrop-blur-lg z-10"></div>
+
+      {/* --- Content Container --- */}
+      <div className="relative z-20 flex flex-col h-full text-white">
+        {/* Title container - grows to push the button to the bottom */}
+        <div className="flex flex-grow flex-col justify-center items-center text-center p-5 bg-gradient-to-t from-black/50 via-transparent to-transparent">
+          <h1
+            // ADDED line-clamp-4 here to truncate long titles
+            className="text-xl md:text-3xl font-extrabold leading-tight line-clamp-4 w-full"
+          >
+            {data.title}
+          </h1>
+        </div>
+
+        {/* --- "Watch Now" Footer Button Bar --- */}
+        <div
+          className="
+            w-full mt-auto py-3 text-center
+            bg-red-600/90 font-bold text-lg
+            transition-all duration-300 group-hover:bg-red-700/95
+          "
         >
-          <a href={`https://youtube.com/watch?v=${data.id}`} target="_blank">
-            Watch
-          </a>
-        </button>
+          Watch Now
+        </div>
       </div>
-    </div>
+    </a>
   );
 }

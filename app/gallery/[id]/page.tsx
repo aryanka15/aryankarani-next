@@ -1,6 +1,6 @@
 import { getPicIds } from "../../utils/get-pic-ids";
 import InfoCard from "../components/info-card";
-import { IoLocationSharp } from "react-icons/io5";
+import { IoLocationSharp, IoCamera } from "react-icons/io5";
 import ClientImage from "../components/client-image";
 import { getCldImageUrl } from "next-cloudinary";
 import cloudinary from "../../utils/cloudinary";
@@ -71,44 +71,49 @@ export default async function PhotoPage({ params }: { params: Params }) {
   });
 
   return (
-    <>
-      <div
-        style={{
-          backgroundImage: `url(${url})`,
-        }}
-        className={`IdPage bg-cover bg-no-repeat flex flex-col w-screen justify-center items-center pt-36 pb-20 space-y-10`}
-      >
-        <h1
-          className={
-            "text-5xl md:text-6xl mx-5 w-screen text-center p-5 font-extrabold text-black/95"
-          }
-        >
+    <div
+      style={{
+        backgroundImage: `url(${url})`,
+      }}
+      className={`IdPage bg-cover bg-no-repeat flex flex-col w-screen justify-center items-center pt-36 pb-20 space-y-10`}
+    >
+      {/* --- Blurred Background Image (Scaled-Up) --- */}
+      {/* This CldImage is for the background, heavily blurred and scaled */}
+      {/* --- Dark Overlay over Blurred Background --- */}
+      {/* Ensures text readability and darkens the background subtly */}
+      {/* <div className="absolute inset-0 z-10"></div> */}
+
+      {/* --- Content Wrapper --- */}
+      {/* All actual content sits on top of the blurred background and overlay */}
+      <div className="relative z-20 w-full max-w-5xl flex flex-col items-center gap-y-8 sm:gap-y-12 text-white">
+        {/* --- Title --- */}
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-center max-w-3xl drop-shadow-lg px-10">
           {imageData.title}
         </h1>
-        <ClientImage imageData={imageData}></ClientImage>
-        <div
-          className={
-            "flex flex-col space-y-5 md:flex-row w-[80%] md:w-full mx-10 items-center justify-evenly mb-20"
-          }
-        >
-          <InfoCard
-            heading={"Description"}
-            text={imageData.description}
-          ></InfoCard>
-          <div
-            className={
-              "flex border-2 border-white/60 p-5 shadow-2xl bg-white/40 backdrop-blur-2xl flex-col w-full md:w-fit justify-self-stretch items-start text-start justify-start bg-neutral-200 rounded-lg"
-            }
-          >
-            <div
-              className={"flex flex-row items-center justify-center text-lg"}
-            >
-              <IoLocationSharp />: {imageData.location}
+
+        {/* This is your existing image component (the sharp, main one) */}
+        <div className="w-screen px-10 md:px-36">
+          <ClientImage imageData={imageData} />
+        </div>
+
+        {/* --- Info Cards Section --- */}
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6 mt-4 px-10">
+          {/* Description Card */}
+          <InfoCard heading={"Description"} text={imageData.description} />
+
+          {/* --- Details Card (Location & Camera) --- */}
+          <div className="flex flex-col gap-y-4 p-6 rounded-2xl backdrop-blur-lg border bg-neutral-400/40  border-neutral-200 shadow-xl">
+            <div className="flex items-center gap-x-3 text-lg">
+              <IoLocationSharp size={22} className="text-white" />
+              <span className="font-bold">{imageData.location}</span>
             </div>
-            <h1 className={"text-lg mt-2"}>{imageData.camera}</h1>
+            <div className="flex items-center gap-x-3 text-lg">
+              <IoCamera size={22} className="text-white" />
+              <span className="font-bold">{imageData.camera}</span>
+            </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

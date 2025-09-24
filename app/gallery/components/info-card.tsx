@@ -1,12 +1,20 @@
-export default function InfoCard(props: {heading: string, text: string}) {
-    const heading = props.heading;
-    const text = props.text;
-    return (
-        <>
-           <div className={"flex flex-col w-full md:w-fit md:max-w-prose items-start border-2 border-white/60 p-5 shadow-2xl bg-white/40 backdrop-blur-2xl rounded-lg"}>
-                <h1 className={"text-2xl font-bold"}>{heading}</h1>
-                <p className={"text-lg"}>{text}</p>
-           </div>
-        </>
-    )
+export default function InfoCard({
+  heading,
+  text,
+}: {
+  heading: string;
+  text: string;
+}) {
+  return (
+    <div
+      className="
+        flex flex-col gap-y-2 p-6 rounded-2xl 
+        bg-neutral-400/40 backdrop-blur-lg 
+        border border-neutral-200 shadow-xl max-w-prose
+      "
+    >
+      <h1 className="text-2xl font-bold">{heading}</h1>
+      <p className="text-lg text-white">{text}</p>
+    </div>
+  );
 }

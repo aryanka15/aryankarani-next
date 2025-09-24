@@ -85,7 +85,7 @@ export default function KidWithACamera() {
             />
           </div>
         </div>
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-2 lg:gap-x-3 gap-y-2 lg:gap-y-3 mx-auto p-3">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-2 lg:gap-x-5 gap-y-2 lg:gap-y-3 mx-auto p-3">
           {data?.map((element: VideoData) => (
             <VideoCard key={element.id} data={element}></VideoCard>
           ))}
