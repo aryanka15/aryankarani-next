@@ -25,8 +25,8 @@ export default function Home() {
 
           <div className="flex flex-col items-center text-center text-white max-w-prose">
             <h1 className="text-2xl md:text-3xl drop-shadow-md">
-              Hi! {"I'm"} Aryan Karani. That message up there? {"I'm"} not that
-              cool-sounding in real life. My{" "}
+              Hi! I&apos;m Aryan Karani. That message up there? I&apos;m not
+              that cool-sounding in real life. My{" "}
               <a
                 href="https://youtube.com/@aryankarani"
                 target="_blank"
