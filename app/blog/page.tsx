@@ -26,7 +26,7 @@ export default async function Blog() {
         <div
           className={`flex flex-col lg:flex-row text-center justify-center mt-24 md:mt-36 mb-10 text-5xl md:text-7xl font-bold`}
         >
-          <h1 className={"text-neutral-900"}>ARYAN KARANI'S</h1>
+          <h1 className={"text-neutral-900"}>ARYAN KARANI&apos;S</h1>
           <h1 className={"text-red-600"}>&nbsp;SNAPSHOTS</h1>
         </div>
         <div className="BlogPosts w-full mx-auto max-w-7xl px-4 mb-10">
