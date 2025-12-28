@@ -63,6 +63,19 @@ export default async function PostPage({
             types: {
               image: ImageComponent,
             },
+            marks: {
+              link: ({ children, value }: any) => {
+                return (
+                  <a
+                    href={value.href}
+                    className="text-blue-300 underline hover:text-blue-400"
+                    rel="noopener noreferrer"
+                  >
+                    {children}
+                  </a>
+                );
+              },
+            },
           }}
           value={body_components}
         ></PortableText>
