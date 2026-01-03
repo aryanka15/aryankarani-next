@@ -67,12 +67,18 @@ export default function BlogCard(props: { data: any; main: boolean }) {
 
   const date = new Date(data.publishedAt);
 
-  // Format the date
-  const formattedDate = new Intl.DateTimeFormat("en-US", {
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-  }).format(date);
+  // Format the date: use MM/DD/YYYY on small screens, long format on larger screens
+  let formattedDate = "";
+  if (windowWidth && windowWidth < 768) {
+    // MM/DD/YYYY
+    formattedDate = date.toLocaleDateString("en-US");
+  } else {
+    formattedDate = new Intl.DateTimeFormat("en-US", {
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    }).format(date);
+  }
 
   return (
     <Link href={{ pathname: `/blog/${data.slug.current}` }}>
@@ -92,7 +98,7 @@ export default function BlogCard(props: { data: any; main: boolean }) {
           </div>
           <div className="flex flex-col flex-grow justify-center min-h-[150px] md:min-h-[240px] px-3 md:px-4">
             <h1
-              className={`py-3 md:py-3 text-base sm:text-lg md:text-2xl lg:text-2xl xl:text-4xl text-white font-bold`}
+              className={`py-3 md:py-3 text-lg md:text-2xl lg:text-2xl xl:text-4xl text-white font-bold`}
             >
               {truncatedText}
             </h1>
@@ -102,7 +108,7 @@ export default function BlogCard(props: { data: any; main: boolean }) {
               className={`
             w-full py-3 px-3 rounded-b-xl
             bg-gradient-to-br from-blue-600 to-blue-800 text-white
-            font-bold text-lg
+            font-bold
             shadow-md hover:shadow-lg focus:shadow-xl
             hover:from-red-500 hover:to-red-700
             transition-all duration-300 ease-in-out

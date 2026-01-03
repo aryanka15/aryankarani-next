@@ -1,7 +1,6 @@
 import { Rubik } from "next/font/google";
-import Posts from "./posts";
-import { getPosts } from "../../lib/fetch";
 import { Metadata } from "next";
+import BlogContent from "./BlogContent";
 
 const rubik = Rubik({
   weight: ["400", "800", "900"],
@@ -15,9 +14,7 @@ export const metadata: Metadata = {
 
 export const dynamic = "force-dynamic";
 
-export default async function Blog() {
-  const posts = await getPosts();
-
+export default function Blog() {
   return (
     <div className={"w-screen min-h-screen bg-neutral-600"}>
       <div
@@ -29,9 +26,7 @@ export default async function Blog() {
           <h1 className={"text-neutral-900"}>ARYAN KARANI&apos;S</h1>
           <h1 className={"text-red-600"}>&nbsp;SNAPSHOTS</h1>
         </div>
-        <div className="BlogPosts w-full mx-auto max-w-7xl px-4 mb-10">
-          <Posts posts={posts}></Posts>
-        </div>
+        <BlogContent />
         {/* Modern styled button */}
         {/* <Link
       className={`

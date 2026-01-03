@@ -6,6 +6,7 @@ export const postsQuery = groq`*[_type == "post"] | order(publishedAt desc) {
   title,
   slug,
   mainImage,
+  categories[]-> {title},
   "imageURL": mainImage.asset->url,
   "authorName": author->name,
 }`;
