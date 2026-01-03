@@ -1,13 +1,10 @@
 import { getPosts } from "../../../lib/fetch";
 import { NextResponse } from "next/server";
-import { unstable_cache } from "next/cache";
-
-const getCachedPosts = unstable_cache(getPosts, ["posts"], { revalidate: 60 });
 
 export async function GET() {
   console.log("API /api/posts called at", new Date().toISOString());
   try {
-    const posts = await getCachedPosts();
+    const posts = await getPosts();
     console.log("Posts returned (possibly from cache):", posts.length, "items");
     return NextResponse.json(posts);
   } catch (error) {

@@ -2,7 +2,14 @@ import { client } from "./client";
 import { postPathsQuery, postQuery, postsQuery } from "./queries";
 
 export async function getPosts() {
-  const posts = await client.fetch(postsQuery);
+  const posts = await client.fetch(
+    postsQuery,
+    {},
+    {
+      cache: "force-cache",
+      next: { revalidate: 300 },
+    }
+  );
   console.log(posts);
   return posts;
 }
